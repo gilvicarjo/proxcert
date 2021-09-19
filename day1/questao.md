@@ -3,6 +3,8 @@ Obs: No início da prova não esquecer de
 * habilitar o kubectl completion
 * a prova é disponibilizada em um ambiente na hora tudo pelo navegador
 
+Livro: https://livro.descomplicandokubernetes.com.br/pt/day_one/descomplicando_kubernetes.html
+
 # Questão 1
 
 - Criar um pod utilizando a imagem do Nginx 1.18.0, com o nome de **giropops** no namespace **strigus**.
