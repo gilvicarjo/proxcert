@@ -5,6 +5,7 @@ Obs: No início da prova não esquecer de
 
 Livro: https://livro.descomplicandokubernetes.com.br/pt/day_one/descomplicando_kubernetes.html
 
+--------------------------------------------------
 # Questão 1
 
 - Criar um pod utilizando a imagem do Nginx 1.18.0, com o nome de **giropops** no namespace **strigus**.
@@ -71,6 +72,7 @@ kubectl create -f pod.yaml -n strigus
 ```
 Obs: Mesmo com execucao do comando **create**, o Namespace deve obrigatoriamente ser criado
 
+--------------------------------------------------
 # Questão 2
 - Aumentar a quantidade de réplicas do deployment **girus** no namespace **strigus**, que está utilizando a imagem do nginx 1.18.0, para 3 réplicas. 
 
@@ -106,6 +108,7 @@ Podemos alterar qualquer configuração corrente com o kubectl edit da seguinte 
 kubectl edit deploy -n strigus girus
 ```
 
+--------------------------------------------------
 # Questão 3
 - Precisamos atualizar a versão do Nginx do Pod giropops. Ele está na versão 1.18.0 e precisamos atualizar para a versão 1.21.1 
 

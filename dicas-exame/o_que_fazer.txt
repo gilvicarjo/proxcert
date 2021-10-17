@@ -1,0 +1,10 @@
+- Docker by Nana
+- Curso: Kubernetes the Hard Way (A Cloud Guru)
+- Curso: CKA Udemy *** (COMPRAR ESSE CURSO E PRATICAR MUITO NA KODEKLOUD)
+- Practice Test do KodeKloud (Comprando o Curso do Udemy, tem acesso gratuido a Simulador do KodeKloud)
+- Practice Tests in Killer.sh <<<<<<
+- Revise as competencias: https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.21.pdf - ver os gaps em cada copmpetencia
+- Revise a documentacao permitida: kubernetes.io e github.com/kubernetes (CANDIDATE HANDBOOK)
+- Bookmark as principais paginas de documentacao (previamente)
+- Fazer alias no ~/.zshrc do maximo de comandos mais usados
+- instalar kubectl com a mesma versao da prova (agora 1.21)

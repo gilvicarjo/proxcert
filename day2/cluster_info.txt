@@ -1,0 +1,17 @@
+- Quantos nodes são workers?
+k get nodes
+3
+- Quantos nodes são masters?
+k get nodes
+3
+- Qual o Pod Network (CNI) que estamos utilizando?
+kubectl get pods -n kube-system
+ssh node
+cd /etc/cni
+ls -lha
+Weave Net
+- Qual o CIDR dos pods no segundo Worker? <<<
+k describe nodes node2 | grep PodCIDR
+
+- Qual o DNS que estamos utilizando para o Cluster?
+kubectl get pods -n kube-system
