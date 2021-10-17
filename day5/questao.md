@@ -60,11 +60,29 @@ cat /etc/kubernetes/manifests/etcd.yaml
         # ETCDCTL_API=3
         # apt install etcd-client
         ```
+      - Dentro do pasta /etc/kubernetes/manifests/, execute para retornar as infos dos certificados: 
+        ```markdown
+        grep etcd kube-apiserver.yaml
+        ```
+        - Saída:
+        ```bash
+          --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
+          --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt
+          --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-client.key
+          --etcd-servers=https://127.0.0.1:2379
+        ```
       - Executar o seguinte comando 
         ```markdown
-        # ETCDCTL_API=3 etcdctl snapshot save nome_backup_etcd.db
+        # ETCDCTL_API=3 etcdctl snapshot save nome_backup_etcd.db --key /etc/kubernetes/pki/apiserver-etcd-client.key --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/apiserver-etcd-client.crt
         ```
         Enter na bagaça!!!
+        - Saída:
+        ```bash
+        2021-10-17 23:49:24.222270 I | clientv3: opened snapshot stream; downloading
+        2021-10-17 23:49:24.328184 I | clientv3: completed snapshot read; closing
+        Snapshot saved at nome_backup_etcd.db
+        ```
+        Backup Feito!!!
 ### Questao 2
 
 - 
