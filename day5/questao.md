@@ -107,14 +107,14 @@ kubectl run strigus --image nginx
 <details>
  <summary><b> Resposta 2 </b> <em>(clique para ver a resposta)</em></summary>
 
-- Caso, queira testar, podemos jogar para um path qualquer e ajustar a conf do etcd.yaml para este path qualquer:
+- Caso, queira testar, podemos jogar para um path qualquer e ajustar a conf do etcd.yaml para este path qualquer alterando o  :
 ```markdown
 ETCDCTL_API=3 etcdctl snapshot restore snap_do_gerente.db -data-dir /tmp/etcd-test
 ```
 
 - Aplicar comando de restore no path do ETCD
 ```markdown
-ETCDCTL_API=3 etcdctl snapshot restore nome_snap_etcd.db --data-dir /var/lib/etcd
+ETCDCTL_API=3 etcdctl snapshot restore nome_snap_etcd.db
 ```
 
 </details>
