@@ -8,9 +8,10 @@
 
 
 ### Questao 1
-O nosso gerente solicitou que seja feito agora, um backup/snapshot do nosso ETCD. Ele ficou assustado em saber que se perdermos o ETCD, perderemos o nosso cluster e, consequentemente, a nossa tranquilidade! Portanto, bora fazer esse snapshot imediatamente!
+O nosso gerente solicitou que seja feito agora, um snapshot do nosso ETCD. Ele ficou assustado em saber que se perdermos o ETCD, perderemos o nosso cluster e, consequentemente, a nossa tranquilidade! Portanto, bora fazer esse snapshot imediatamente!
 
-### Pré-Tasks 1
+<details>
+ <summary><b>  Pré-Tasks 1 </b> <em>(clique para ver as pré-tasks)</em></summary>
 
 #### Instalar o ETCDCTL
 - Ubuntu: 
@@ -43,8 +44,9 @@ kube-apiserver.yaml
 kube-controller-manager.yaml  
 kube-scheduler.yaml
 ```
-
-### Resposta 1
+</details>
+<details>
+ <summary><b> Resposta 1 </b> <em>(clique para ver a resposta)</em></summary>
 
 1. Checar certificados do ETCD:
    - Dentro do Control-Plane 
@@ -69,22 +71,50 @@ cat /etc/kubernetes/manifests/etcd.yaml
           --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
           --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt
           --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-client.key
-          --etcd-servers=https://127.0.0.1:2379
+          --etcd-servers=https://127.0.0.1:2379 (Endpoint da DOC!!!!)
         ```
       - Executar o seguinte comando 
         ```markdown
-        # ETCDCTL_API=3 etcdctl snapshot save nome_backup_etcd.db --key /etc/kubernetes/pki/apiserver-etcd-client.key --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/apiserver-etcd-client.crt
+        ETCDCTL_API=3 etcdctl snapshot save nome_snap_etcd.db --key /etc/kubernetes/pki/apiserver-etcd-client.key --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/apiserver-etcd-client.crt
         ```
         Enter na bagaça!!!
         - Saída:
         ```bash
         2021-10-17 23:49:24.222270 I | clientv3: opened snapshot stream; downloading
         2021-10-17 23:49:24.328184 I | clientv3: completed snapshot read; closing
-        Snapshot saved at nome_backup_etcd.db
+        Snapshot saved at nome_snap_etcd.db
         ```
         Backup Feito!!!
+</details>
+
 ### Questao 2
+Muito bem, o gerente está feliz, mas não perfeitamente explendido em sua felicidade! A pergunta do gerente foi a seguinte, vc já fez o restire para testar o nosso snapshot? EU QUERO TESTAR AGORA!
 
-- 
+<details>
+ <summary><b>  Pré-Tasks 2 </b> <em>(clique para ver as pré-tasks)</em></summary>
 
-### Resposta 2
+- Criar um Pod 
+```markdown
+kubectl run strigus --image nginx
+```
+
+- Checar endereco/Path original do etcd. Abrir arquivo /etc/kubernetes/manifests/etcd.yaml e verificar linha --data-dir
+```markdown
+--data-dir=/var/lib/etcd
+``` 
+
+</details>
+<details>
+ <summary><b> Resposta 2 </b> <em>(clique para ver a resposta)</em></summary>
+
+- Caso, queira testar, podemos jogar para um path qualquer e ajustar a conf do etcd.yaml para este path qualquer:
+```markdown
+ETCDCTL_API=3 etcdctl snapshot restore snap_do_gerente.db -data-dir /tmp/etcd-test
+```
+
+- Aplicar comando de restore no path do ETCD
+```markdown
+ETCDCTL_API=3 etcdctl snapshot restore nome_snap_etcd.db --data-dir /var/lib/etcd
+```
+
+</details>
