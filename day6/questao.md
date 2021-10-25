@@ -93,6 +93,15 @@ ps -ef | grep kubelet
 ```
 ![](images/ps_-ef_|_grep_kubelet.png)
 
+Verificamos o status dos PODs e Nodes do Cluster novamente
+
+```markdown
+k get nodes
+``` 
+```markdown
+k get pods -A 
+```
+
 </details>
 
 ### Questao 2
