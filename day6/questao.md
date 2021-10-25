@@ -86,6 +86,8 @@ systemctl restart kubelet
 systemctl status kubelet
 ```
 
+![](images/kubelet-running.png)
+
 </details>
 
 ### Questao 2
