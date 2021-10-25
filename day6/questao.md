@@ -14,9 +14,23 @@ O nosso gerente observou no Lens que um dos nossos nodes não está bem. Temos a
  
  <summary><b>  Pré-Tasks 1 </b> <em>(clique para ver as pré-tasks)</em></summary>
 
-- k get pods -A (verificamos alguns CrashLoopBacks)
-- k get nodes (verificamos alguns Nodes NotReady)
-- k describe nodes "nome_node"
+- Com o comando abaixo, verificamos alguns CrashLoopBacks.
+```
+k get pods -A 
+```
+- Com o comando abaixo, verificamos um Node com status NotReady.
+```
+k get nodes
+``` 
+- Entramos nos node Not Ready
+```
+k describe nodes "nome_node"
+```
+- Podemos então entrar no Host via SSH e checar o kubelet 
+```
+systemctl status kubelet
+```
+![](images/status-kubelet.png)
 
 </details>
 
