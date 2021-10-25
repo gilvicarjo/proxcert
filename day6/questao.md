@@ -88,6 +88,11 @@ systemctl status kubelet
 
 ![](images/kubelet-running.png)
 
+```markdown
+ps -ef | grep kubelet
+```
+![](images/ps_-ef_|_grep_kubelet.png)
+
 </details>
 
 ### Questao 2
