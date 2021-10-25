@@ -32,6 +32,11 @@ systemctl status kubelet
 ```
 ![](images/status-kubelet.png)
 
+- Checamos então se o kubelet ao menos está rodando
+```
+ps -ef | grep kubelet
+```
+![](images/status-kubelet-II.png)
 </details>
 
 <details>
